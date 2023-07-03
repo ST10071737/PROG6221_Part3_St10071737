@@ -5,8 +5,122 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROG6221_Part3_St10071737"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Height="600" Width="980"
+        WindowStyle="None"
+        ResizeMode="CanResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+    
+    <Border CornerRadius="10">
+
+        <Border.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#540b3e" Offset="0.0"/>
+                <GradientStop Color="#060757" Offset="0.8"/>
+                <GradientStop Color="#060e57" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0"
+                    Background="#252130"
+                    Margin="5,5,-195,5"
+                    CornerRadius="10">
+                
+                <TextBlock Text="Your Digital Recipe Book"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="left"
+                   Foreground="White"
+                   FontSize="22"
+                   Margin="20,0,0,0"/>
+                
+            </Border>
+
+            <Border Grid.Column="1"
+                    Grid.Row="1"
+                    Background="#252130"
+                    Margin="5,5,5,5">
+
+                <Border.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                       RadiusY="10"
+                                       Rect="0,0,190,540"/>
+                </Border.Clip>
+
+                <StackPanel>
+
+                    <Border Width="190"
+                            Height="10">
+                    </Border>
+
+                    <RadioButton Content="Digital Bytes"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+                    <RadioButton Content="Search"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+                    <RadioButton Content="Add recipe"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+                    <Border Width="190"
+                            Height="320">
+                    </Border>
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="5,5,5,5"
+                                VerticalAlignment="Bottom">
+                        <Border Width="30"
+                            Height="50">
+                        </Border>
+                        
+                        <Button Width="50"
+                                Height="50"
+                                Style="{StaticResource MenuFuntionButtonTheme}">
+                            <Button.Background>
+                                <ImageBrush ImageSource="/Images/Exit.png"
+                                            Opacity="50"/>
+                            </Button.Background>
+                        </Button>
+
+                        <Border Width="20"
+                            Height="50">
+                        </Border>
+
+                        <Button Width="50"
+                                Height="50"
+                                Style="{StaticResource MenuFuntionButtonTheme}">
+                        <Button.Background>
+                            <ImageBrush ImageSource="/Images/Github.png"
+                                            Opacity="50"/>
+                        </Button.Background>
+                        </Button>
+                    </StackPanel>
+                    
+                </StackPanel>
+                
+            </Border>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="10"/>
+
+        </Grid>
         
-    </Grid>
+    </Border>
 </Window>
