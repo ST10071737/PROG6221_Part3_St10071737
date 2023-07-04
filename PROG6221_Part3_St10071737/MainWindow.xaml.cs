@@ -29,13 +29,16 @@ namespace PROG6221_Part3_St10071737
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GitButton_Click(object sender, RoutedEventArgs e)
         {
             string websiteUrl = "https://github.com/ST10071737/PROG6221_Part3_St10071737";
             Process.Start(new ProcessStartInfo(websiteUrl));
         }
 
-
+        private void ExitButton_Click(Object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
 
     }
 }

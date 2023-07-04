@@ -56,6 +56,18 @@
                     Margin="10"
                     Background="#22162b">
 
+                    
+                    <Button Width="266"
+                        Height="205"
+                        Click="ResoursesButton_Click"
+                        Content="Resourses"
+                        FontSize="30"
+                        Foreground="White"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                        Style="{StaticResource MenuFuntionButtonTheme}"/>
+
+
             </Border>
 
         </Grid>

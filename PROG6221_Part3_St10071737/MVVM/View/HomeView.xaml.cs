@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
@@ -63,7 +64,11 @@ namespace PROG6221_Part3_St10071737.MVVM.View
             TBFunFacts.Text = funFacts[currentIndex];
         }
 
-
+        private void ResoursesButton_Click(object sender, EventArgs e)
+        {
+            string websiteUrl = "https://github.com/ST10071737/PROG6221_Part3_St10071737/blob/master/Resourses.txt";
+            Process.Start(new ProcessStartInfo(websiteUrl));
+        }
     }
 }
 
