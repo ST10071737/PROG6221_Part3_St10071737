@@ -11,14 +11,26 @@
                    Foreground="White"
                    FontSize="28"
                    HorizontalAlignment="Left"
-                   Margin="0,0,0,10"/>
+                   Margin="5,0,0,10"/>
         <Grid Height="400">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
-            
-            
+
+            <Border Grid.Column="0"
+                    Background="#252130"
+                    CornerRadius="10"
+                    Margin="5,5,5,5">
+                
+            </Border>
+
+            <Border Grid.Column="1"
+                    Background="#252130"
+                    CornerRadius="10"
+                    Margin="5,5,5,5">
+                
+            </Border>
             
         </Grid>
     </StackPanel>
