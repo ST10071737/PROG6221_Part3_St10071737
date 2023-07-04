@@ -10,6 +10,8 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/MenuFunctionButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/UserInputTheme.xaml"/>
+                <ResourceDictionary Source="Theme/UserInputComboBoxTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
@@ -17,7 +19,11 @@
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:ViewAllRecipesViewModel}">
-                <view:ViewRecipes/>
+                <view:ViewAllRecipesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AddRecipeViewModel}">
+                <view:AddRecipeView/>
             </DataTemplate>
 
         </ResourceDictionary>

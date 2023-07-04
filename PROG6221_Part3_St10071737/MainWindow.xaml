@@ -71,24 +71,23 @@
                                  Height="50"
                                  Foreground="White"
                                  FontSize="14"
-                                 Style="{StaticResource MenuButtonTheme}"/>
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 IsChecked="True"
+                                 Command="{Binding HomeViewComand}"/>
                     <RadioButton Content="View All Recipes"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="14"
-                                 Style="{StaticResource MenuButtonTheme}"/>
-                    <RadioButton Content="Search"
-                                 Height="50"
-                                 Foreground="White"
-                                 FontSize="14"
-                                 Style="{StaticResource MenuButtonTheme}"/>
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding ViewAllRecipesViewComand}"/>
                     <RadioButton Content="Add Recipe"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="14"
-                                 Style="{StaticResource MenuButtonTheme}"/>
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding AddRecipeViewComand}"/>
                     <Border Width="190"
-                            Height="270">
+                            Height="320">
                     </Border>
 
                     <StackPanel Orientation="Horizontal"

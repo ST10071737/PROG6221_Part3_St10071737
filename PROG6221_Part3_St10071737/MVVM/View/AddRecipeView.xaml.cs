@@ -16,13 +16,15 @@ using System.Windows.Shapes;
 namespace PROG6221_Part3_St10071737.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for ViewAllRecipesView.xaml
+    /// Interaction logic for AddRecipeView.xaml
     /// </summary>
-    public partial class ViewAllRecipesView : UserControl
+    public partial class AddRecipeView : UserControl
     {
-        public ViewAllRecipesView()
+
+        public AddRecipeView()
         {
             InitializeComponent();
+
         }
     }
 }
