@@ -1,0 +1,6 @@
+prog resourses
+Icons:
+quit by habione 404 from <a href="https://thenounproject.com/browse/icons/term/quit/" target="_blank" title="quit Icons">Noun Project</a>
+github by Guillaume Beaulieu from <a href="https://thenounproject.com/browse/icons/term/github/" target="_blank" title="github Icons">Noun Project</a>
+Tutorial for UI
+https://www.youtube.com/watch?v=PzP8mw7JUzI&t=1950s&ab_channel=Payload
