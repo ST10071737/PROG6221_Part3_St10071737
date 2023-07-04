@@ -4,13 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PROG6221_Part3_St10071737"
+        xmlns:viewModel="clr-namespace:PROG6221_Part3_St10071737.MVVM.ViewModel"
         mc:Ignorable="d"
         Height="600" Width="980"
         WindowStyle="None"
         ResizeMode="CanResize"
         Background="Transparent"
         AllowsTransparency="True">
-    
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
     <Border CornerRadius="10">
 
         <Border.Background>
@@ -29,15 +34,15 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
-                <RowDefinition/>
+                <RowDefinition />
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0"
                     Background="#252130"
                     Margin="5,5,-195,5"
                     CornerRadius="10">
-                
-                <TextBlock Text="Your Digital Recipe Book"
+
+                <TextBlock Text="Digital Bytes"
                    VerticalAlignment="Center"
                    HorizontalAlignment="left"
                    Foreground="White"
@@ -62,8 +67,12 @@
                     <Border Width="190"
                             Height="10">
                     </Border>
-
-                    <RadioButton Content="Digital Bytes"
+                    <RadioButton Content="Home"
+                                 Height="50"
+                                 Foreground="White"
+                                 FontSize="14"
+                                 Style="{StaticResource MenuButtonTheme}"/>
+                    <RadioButton Content="View All Recipes"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="14"
@@ -73,13 +82,13 @@
                                  Foreground="White"
                                  FontSize="14"
                                  Style="{StaticResource MenuButtonTheme}"/>
-                    <RadioButton Content="Add recipe"
+                    <RadioButton Content="Add Recipe"
                                  Height="50"
                                  Foreground="White"
                                  FontSize="14"
                                  Style="{StaticResource MenuButtonTheme}"/>
                     <Border Width="190"
-                            Height="320">
+                            Height="270">
                     </Border>
 
                     <StackPanel Orientation="Horizontal"
@@ -104,11 +113,13 @@
 
                         <Button Width="50"
                                 Height="50"
+                                Click="Button_Click"
                                 Style="{StaticResource MenuFuntionButtonTheme}">
                         <Button.Background>
                             <ImageBrush ImageSource="/Images/Github.png"
                                             Opacity="50"/>
                         </Button.Background>
+                            
                         </Button>
                     </StackPanel>
                     
@@ -118,7 +129,8 @@
 
             <ContentControl Grid.Row="1"
                             Grid.Column="0"
-                            Margin="10"/>
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
 
         </Grid>
         

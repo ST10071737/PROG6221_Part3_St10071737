@@ -9,14 +9,55 @@
     <Border CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="484"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            
-            
-            
-            
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="315"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="10"
+                    Margin="10"
+                    Background="#22162b">
+                
+            </Border>
+
+            <Border Grid.Column="1"
+                    CornerRadius="10"
+                    Margin="10"
+                    Background="#22162b">
+
+                <TextBlock x:Name="TBFunFacts" 
+                           Foreground="White" 
+                           Padding="10"
+                           TextWrapping="Wrap"
+                           FontSize="20"/>
+                
+            </Border>
+
+            <Border Grid.Row="1"
+                    CornerRadius="10"
+                    Margin="10"
+                    Background="#22162b">
+
+                <TextBlock x:Name="TBAbout" 
+                           Foreground="White" 
+                           Padding="10"
+                           TextWrapping="Wrap"
+                           FontSize="15"/>
+
+            </Border>
+
+            <Border Grid.Row="1"
+                    Grid.Column="1"
+                    CornerRadius="10"
+                    Margin="10"
+                    Background="#22162b">
+
+            </Border>
+
         </Grid>
     </Border>
 </UserControl>
