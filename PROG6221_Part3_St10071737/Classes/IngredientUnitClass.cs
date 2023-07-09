@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PROG6221_Part3_St10071737.Classes
 {
-    internal class IngredientUnitClass
+    public class IngredientUnitClass
     {
         /// <summary>
         /// Property to store the index of the unit of measure. 

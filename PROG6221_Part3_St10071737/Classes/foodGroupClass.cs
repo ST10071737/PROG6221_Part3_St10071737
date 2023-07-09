@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PROG6221_Part3_St10071737.Classes
 {
-    internal class foodGroupClass
+    public class foodGroupClass
     {
         /// <summary>
         /// property to store food group index

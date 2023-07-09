@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PROG6221_Part3_St10071737.MVVM.View"
-              xmlns:viewModel="clr-namespace:PROG6221_Part3_St10071737.MVVM.ViewModel"
+             xmlns:viewModel="clr-namespace:PROG6221_Part3_St10071737.MVVM.ViewModel"
+             xmlns:classes="clr-namespace:PROG6221_Part3_St10071737.Classes"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="780">
 
@@ -89,11 +90,11 @@
                             Content="Add Ingredient"
                             Foreground="White"
                             FontSize="15"
-                            IsHitTestVisible="False"
+                            IsHitTestVisible="True"
                             BorderThickness="0"
-                            Command="{Binding AddIngredientCommand}">
+                            Command="{Binding TestCommand}"/>
 
-                            </Button>
+
                         </Border>
                     </StackPanel>
 
@@ -116,7 +117,7 @@
 
                         <TextBox Name="TBIngredientName"
                                  Style="{StaticResource UserInputTheme}"
-                                 Text="{Binding IngredientName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                 Text="{Binding IngredientName, Mode=TwoWay}"/>
 
 
                     </StackPanel>
@@ -157,14 +158,22 @@
                                 Width="200"
                                 Height="40"
                                 CornerRadius="10">
-                            
-                             <ComboBox Name="CBUoM"
+
+                            <ComboBox Name="CBUoM"
                                        Height="20"
                                        Width="190"
-                                       ItemsSource="{Binding UnitFactors}"
-                                       DisplayMemberPath="UoMName"
-                                       SelectedValuePath="UoMName"
-                                       Text="{Binding SelectedUoM, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                       SelectedValuePath="Content"
+                                       SelectedItem="{Binding ingredientsClass.IngredientUoM, Mode=TwoWay}">
+
+                                <ComboBoxItem Content="Cup(s)"/>
+                                <ComboBoxItem Content="1/2 Cup(s)"/>
+                                <ComboBoxItem Content="1/4 Cup(s)"/>
+                                <ComboBoxItem Content="1/8 Cup(s)"/>
+                                <ComboBoxItem Content="Tablespoon(s)"/>
+                                <ComboBoxItem Content="Teaspoon(s)"/>
+                                <ComboBoxItem Content="N/A"/>
+
+                            </ComboBox>
                             
                         </Border>
                        
@@ -214,10 +223,17 @@
                             <ComboBox Name="CBFoodGroups"
                                        Height="20"
                                        Width="190"
-                                       ItemsSource="{Binding Foodgroups}"
-                                       DisplayMemberPath="FGName"
-                                       SelectedValuePath="FGName"
-                                      Text="{Binding IngredientFoodGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                       Background="#353340"
+                                       SelectedValuePath="Content"
+                                       SelectedItem="{Binding ingredientsClass.IngredientFoodGroup, Mode=TwoWay}">
+
+                                <ComboBoxItem Content="Protien"/>
+                                <ComboBoxItem Content="Carboydrates"/>
+                                <ComboBoxItem Content="Fats"/>
+                                <ComboBoxItem Content="Dairy"/>
+
+
+                            </ComboBox>
 
                         </Border>
 

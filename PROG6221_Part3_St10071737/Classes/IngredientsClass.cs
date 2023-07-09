@@ -1,17 +1,22 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PROG6221_Part3_St10071737.Classes
 {
     public class IngredientsClass
     {
+
         /// <summary>
         /// Property to store the name of an ingredient.
         /// </summary>
-        public string IngredientName { get; set; } = String.Empty;
+        public string _IngredientName { get; set; } = String.Empty;
+
+        public string IngredientName
+        {
+            get { return _IngredientName; }
+            set { _IngredientName = value; }
+        }
         //___________________________________________________________________________________________________________
 
         /// <summary>
@@ -24,18 +29,6 @@ namespace PROG6221_Part3_St10071737.Classes
         /// Property to store the ingredient unit of measure.
         /// </summary>
         public string IngredientUoM { get; set; } = String.Empty;
-        //___________________________________________________________________________________________________________
-
-        /// <summary>
-        /// Property to store the ingredient unit of measure.
-        /// </summary>
-        public int IngredientUoMInt { get; set; } = 0;
-        //___________________________________________________________________________________________________________
-
-        /// <summary>
-        /// Property to store the ingredient unit of measure and quantity. 
-        /// </summary>
-        public string IngredientUoMQuantity { get; set; } = String.Empty;
         //___________________________________________________________________________________________________________
 
         /// <summary>
@@ -55,6 +48,8 @@ namespace PROG6221_Part3_St10071737.Classes
         /// <param name="IN">Name of the ingredient.</param>
         /// <param name="IQ">Quantity of the ingredient.</param>
         /// <param name="IUoM">Unit of measure of the ingredient.</param>
+        /// <param name="IC">calories of the ingredient.</param>
+        /// <param name="IFG">Food group  of the ingredient.</param>
         /// <returns>
         /// An instance of the ingredients class.
         /// </returns>
@@ -79,3 +74,4 @@ namespace PROG6221_Part3_St10071737.Classes
         //___________________________________________________________________________________________________________
     }
 }
+//____________________________________EOF_________________________________________________________________________

@@ -4,21 +4,24 @@ using System;
 using System.Collections;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PROG6221_Part3_St10071737.MVVM.ViewModel
 {
-    internal class AddRecipeViewModel : ObservableObject, INotifyPropertyChanged
+    internal class AddRecipeViewModel : ObservableObject
     {
 
-        private String _ingredientName;
+        public IngredientsClass ingredientsClass;
+
+        private string _IngredientName = string.Empty;
 
         public string IngredientName
         {
-            get { return _ingredientName; }
+            get { return _IngredientName; }
             set
             {
-                _ingredientName = value;
+                _IngredientName = value;
                 OnPropertyChanged(nameof(IngredientName));
             }
         }
@@ -66,106 +69,35 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
             get { return _selectedFoodGroup; }
             set
             {
-                _ingredientName = value;
+                _selectedFoodGroup = value;
                 OnPropertyChanged(nameof(_selectedFoodGroup));
             }
         }
 
-        private ArrayList _unitFactors;
-        //___________________________________________________________________________________________________________
 
-        public ArrayList UnitFactors
+        private void test(object param)
         {
-            get { return _unitFactors; }
-            set { _unitFactors = value; OnPropertyChanged(); }
+            MessageBox.Show(_IngredientName);
+            MessageBox.Show(ingredientsClass.IngredientName);
         }
-        //___________________________________________________________________________________________________________
-
-        private ArrayList _Foodgroups;
-        //___________________________________________________________________________________________________________
-
-        public ArrayList Foodgroups
-        {
-            get { return _Foodgroups; }
-            set { _Foodgroups = value; OnPropertyChanged(); }
-        }
-        //___________________________________________________________________________________________________________
-
-        private ObservableCollection<IngredientsClass> _ingredientList;
-        //___________________________________________________________________________________________________________
-
-        public ObservableCollection<IngredientsClass> IngredientList
-        {
-            get { return _ingredientList; }
-            set
-            {
-                _ingredientList = value;
-                OnPropertyChanged(nameof(IngredientList));
-            }
-        }
-        //___________________________________________________________________________________________________________
-
-        public ICommand AddIngredientCommand { get; set; }
-        //___________________________________________________________________________________________________________
 
         public AddRecipeViewModel()
         {
-            UnitFactors = new ArrayList()
+
+            ingredientsClass = new IngredientsClass
             {
-                new IngredientUnitClass() { UoMIndex = 1, UoMName = "Cup(s)  ", UoMValueMl = 250},
-                new IngredientUnitClass() { UoMIndex = 2, UoMName = "1/2 Cup(s)", UoMValueMl = 125 },
-                new IngredientUnitClass() { UoMIndex = 3, UoMName = "1/4 Cup(s)", UoMValueMl = 62.5},
-                new IngredientUnitClass() { UoMIndex = 4, UoMName = "1/8 Cup(s)", UoMValueMl = 31.25},
-                new IngredientUnitClass() { UoMIndex = 5, UoMName = "Tablespoon(s)", UoMValueMl = 15},
-                new IngredientUnitClass() { UoMIndex = 6, UoMName = "Teaspoon(s)", UoMValueMl = 5},
+                IngredientName = this.IngredientName,
+                IngredientQuantity = this.IngredientQuantity,
+                IngredientUoM = this.SelectedUoM,
+                IngredientCalories = this.IngredientCalories,
+                IngredientFoodGroup = this.IngredientFoodGroup,
             };
 
-            Foodgroups = new ArrayList()
-            {
-                new foodGroupClass(){ FGIndex = 1, FGName = "Protien"},
-                new foodGroupClass(){ FGIndex = 2, FGName = "Carboydrates"},
-                new foodGroupClass(){ FGIndex = 3, FGName = "Fats"},
-                new foodGroupClass(){ FGIndex = 4, FGName = "Dairy"}
-            };
-
-
-            IngredientList = new ObservableCollection<IngredientsClass>();
-            AddIngredientCommand = new RelayCommand(AddIngredient);
+            TestCommand = new RelayCommand(test);
         }
         //___________________________________________________________________________________________________________
 
-        private void AddIngredient(object obj)
-        {
-            IngredientsClass ingredients = new IngredientsClass
-            {
-                IngredientName = IngredientName,
-                IngredientQuantity = IngredientQuantity,
-                IngredientUoM = SelectedUoM,
-                IngredientCalories = IngredientCalories,
-                IngredientFoodGroup = IngredientFoodGroup
-            };
-
-            IngredientList.Add(ingredients);
-
-            IngredientName = string.Empty;
-            IngredientQuantity = 0;
-            IngredientCalories = 0;
-        }
-
-        //___________________________________________________________________________________________________________
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        //___________________________________________________________________________________________________________
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        //___________________________________________________________________________________________________________
-
-
-
-
+        public RelayCommand TestCommand { get; private set; }
 
     }
 }
