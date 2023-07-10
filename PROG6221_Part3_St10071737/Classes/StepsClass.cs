@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PROG6221_Part3_St10071737.Classes
 {
-    internal class StepsClass
+    public class StepsClass
     {
         /// <summary>
         /// Property to store the description of a step.
         /// </summary>
-        private string StepDescription { get; set; } = String.Empty;
+        public string StepDescription { get; set; } = String.Empty;
         //___________________________________________________________________________________________________________
 
         /// <summary>
@@ -37,5 +33,12 @@ namespace PROG6221_Part3_St10071737.Classes
         {
         }
         //___________________________________________________________________________________________________________
+
+        public override string ToString()
+        {
+            return this.StepDescription;
+        }
+        //___________________________________________________________________________________________________________
     }
 }
+//____________________________________EOF_________________________________________________________________________

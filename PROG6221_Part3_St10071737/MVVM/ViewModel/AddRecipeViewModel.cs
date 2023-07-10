@@ -1,20 +1,21 @@
 ﻿using PROG6221_Part3_St10071737.Classes;
 using PROG6221_Part3_St10071737.Core;
 using System;
-using System.Collections;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Windows;
-using System.Windows.Input;
 
 namespace PROG6221_Part3_St10071737.MVVM.ViewModel
 {
-    internal class AddRecipeViewModel : ObservableObject
+    public class AddRecipeViewModel : ObservableObject
     {
+        //___________________________________________________________________________________________________________
+        //________________________________________Ingredients________________________________________________________
+        //___________________________________________________________________________________________________________
 
-        public IngredientsClass ingredientsClass;
+        private ObservableCollection<IngredientsClass> ingredientsClassList { get; set; } = new ObservableCollection<IngredientsClass>();
+        //___________________________________________________________________________________________________________
 
         private string _IngredientName = string.Empty;
+        //___________________________________________________________________________________________________________
 
         public string IngredientName
         {
@@ -25,8 +26,10 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
                 OnPropertyChanged(nameof(IngredientName));
             }
         }
+        //___________________________________________________________________________________________________________
 
         private double _ingredientQuantity;
+        //___________________________________________________________________________________________________________
 
         public double IngredientQuantity
         {
@@ -37,8 +40,10 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
                 OnPropertyChanged(nameof(IngredientQuantity));
             }
         }
+        //___________________________________________________________________________________________________________
 
         private String _selectedUoM;
+        //___________________________________________________________________________________________________________
 
         public string SelectedUoM
         {
@@ -49,8 +54,10 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
                 OnPropertyChanged(nameof(_selectedUoM));
             }
         }
+        //___________________________________________________________________________________________________________
 
         private double _ingredientCalories;
+        //___________________________________________________________________________________________________________
 
         public double IngredientCalories
         {
@@ -61,8 +68,10 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
                 OnPropertyChanged(nameof(IngredientCalories));
             }
         }
+        //___________________________________________________________________________________________________________
 
         private String _selectedFoodGroup;
+        //___________________________________________________________________________________________________________
 
         public string IngredientFoodGroup
         {
@@ -70,21 +79,82 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
             set
             {
                 _selectedFoodGroup = value;
-                OnPropertyChanged(nameof(_selectedFoodGroup));
+                OnPropertyChanged(nameof(IngredientFoodGroup));
             }
         }
+        //___________________________________________________________________________________________________________
 
+        //___________________________________________________________________________________________________________
+        //___________________________________________________STEPS___________________________________________________
+        //___________________________________________________________________________________________________________
 
-        private void test(object param)
+        private ObservableCollection<StepsClass> stepsClassList = new ObservableCollection<StepsClass>();
+        //___________________________________________________________________________________________________________
+
+        private String _StepDescription;
+        //___________________________________________________________________________________________________________
+
+        public string StepDescription
         {
-            MessageBox.Show(_IngredientName);
-            MessageBox.Show(ingredientsClass.IngredientName);
+            get { return _StepDescription; }
+            set
+            {
+                _StepDescription = value;
+                OnPropertyChanged(nameof(StepDescription));
+            }
         }
+        //___________________________________________________________________________________________________________
 
+        //___________________________________________________________________________________________________________
+        //__________________________________________________Recipe___________________________________________________
+        //___________________________________________________________________________________________________________
+
+        public RecipeClass recipeClass { get; set; }
+        //___________________________________________________________________________________________________________
+
+        private String _RecipeName;
+        //___________________________________________________________________________________________________________
+
+        public string RecipeName
+        {
+            get { return _RecipeName; }
+            set
+            {
+                _RecipeName = value;
+                OnPropertyChanged(nameof(RecipeName));
+            }
+        }
+        //___________________________________________________________________________________________________________
+
+        //___________________________________________________________________________________________________________
+        //____________________________________________CONSTRUCTOR____________________________________________________
+        //___________________________________________________________________________________________________________
         public AddRecipeViewModel()
         {
+            AddIngredientCommand = new RelayCommand(AddIngredient);
+            AddStepCommand = new RelayCommand(AddStep);
+            AddRecipeCommand = new RelayCommand(AddRecipe);
+        }
+        //___________________________________________________________________________________________________________
 
-            ingredientsClass = new IngredientsClass
+        //___________________________________________________________________________________________________________
+        //______________________________________________COMMANDS_____________________________________________________
+        //___________________________________________________________________________________________________________
+
+        public RelayCommand AddIngredientCommand { get; private set; }
+        //___________________________________________________________________________________________________________
+        public RelayCommand AddStepCommand { get; private set; }
+        //___________________________________________________________________________________________________________
+        public RelayCommand AddRecipeCommand { get; private set; }
+        //___________________________________________________________________________________________________________
+
+        //___________________________________________________________________________________________________________
+        //______________________________________________Methods______________________________________________________
+        //___________________________________________________________________________________________________________
+
+        private void AddIngredient(Object p)
+        {
+            var ingredient = new IngredientsClass
             {
                 IngredientName = this.IngredientName,
                 IngredientQuantity = this.IngredientQuantity,
@@ -93,11 +163,31 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
                 IngredientFoodGroup = this.IngredientFoodGroup,
             };
 
-            TestCommand = new RelayCommand(test);
+            ingredientsClassList.Add(ingredient);
         }
         //___________________________________________________________________________________________________________
 
-        public RelayCommand TestCommand { get; private set; }
+        private void AddStep(Object p)
+        {
+            var step = new StepsClass
+            {
+                StepDescription = this.StepDescription,
+            };
+
+            stepsClassList.Add(step);
+        }
+        //___________________________________________________________________________________________________________
+
+        private void AddRecipe(Object p)
+        {
+            var recipe = new RecipeClass
+            {
+                RecipeName = this.RecipeName,
+                IngredientsList = this.ingredientsClassList,
+                StepsList = this.stepsClassList,
+            };
+        }
+        //___________________________________________________________________________________________________________
 
     }
 }

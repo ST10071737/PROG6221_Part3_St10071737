@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace PROG6221_Part3_St10071737.Core
 {
-    internal class ObservableObject : INotifyPropertyChanged
+    public class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

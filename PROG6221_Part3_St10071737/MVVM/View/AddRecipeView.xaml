@@ -3,14 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PROG6221_Part3_St10071737.MVVM.View"
              xmlns:viewModel="clr-namespace:PROG6221_Part3_St10071737.MVVM.ViewModel"
-             xmlns:classes="clr-namespace:PROG6221_Part3_St10071737.Classes"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="780">
 
     <UserControl.DataContext>
-        <viewModel:AddRecipeViewModel/>
+        <viewModel:AddRecipeViewModel />
     </UserControl.DataContext>
 
     <StackPanel>
@@ -46,9 +44,51 @@
                                FontSize="15"
                                VerticalAlignment="Center"/>
 
-                    <TextBox Name="TBRecipeName"
-                                 Style="{StaticResource UserInputTheme}"/>
+                    <Border CornerRadius="10"
+                            Background="#353340"
+                            Width="230"
+                            Height="40">
+                        <Grid>
 
+                            <TextBox Name="TBRecipeName"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     VerticalAlignment="Center"
+                                     Foreground="White"
+                                     Text="{Binding RecipeName}"/>
+
+                        </Grid>
+                    </Border>
+                    
+                </StackPanel>
+            </Border>
+
+            <Border Background="#252130"
+                        CornerRadius="10"
+                        Margin="5"
+                        Grid.Row="0"
+                        Grid.Column="1">
+
+                <StackPanel Orientation="Horizontal">
+
+
+                    <Border Background="#353340"
+                            CornerRadius="10"
+                            Height="50"
+                            Width="300"
+                            Margin="35,0,35,0">
+
+                        <Button Width="200"
+                            Height="30"
+                            Background="Transparent"
+                            Content="Add Recipe"
+                            Foreground="White"
+                            FontSize="20"
+                            BorderThickness="0"
+                            Command="{Binding AddRecipeCommand}">
+
+                        </Button>
+                    </Border>
 
                 </StackPanel>
             </Border>
@@ -77,8 +117,7 @@
                                FontSize="15"
                                VerticalAlignment="Center"/>
 
-                        <Border Height="40"
-                        Width="70"/>
+                        
 
                         <Border Background="#353340"
                         CornerRadius="10"
@@ -92,7 +131,7 @@
                             FontSize="15"
                             IsHitTestVisible="True"
                             BorderThickness="0"
-                            Command="{Binding TestCommand}"/>
+                            Command="{Binding AddIngredientCommand}"/>
 
 
                         </Border>
@@ -115,10 +154,19 @@
                                FontSize="15"
                                VerticalAlignment="Center"/>
 
-                        <TextBox Name="TBIngredientName"
-                                 Style="{StaticResource UserInputTheme}"
-                                 Text="{Binding IngredientName, Mode=TwoWay}"/>
-
+                        <Border CornerRadius="10"
+                            Background="#353340"
+                            Width="230"
+                            Height="40">
+                            <Grid>
+                                <TextBox Name="TBIngredientName"
+                                     Background="Transparent"
+                                     BorderThickness="0"
+                                     VerticalAlignment="Center"
+                                     Foreground="White"
+                                     Text="{Binding IngredientName}"/>
+                            </Grid>
+                        </Border>
 
                     </StackPanel>
                 </Border>
@@ -134,10 +182,19 @@
                                Foreground="white"
                                FontSize="15"
                                VerticalAlignment="Center"/>
-
-                        <TextBox Name="TBIngredientQuantity"
-                                 Style="{StaticResource UserInputTheme}"
+                        <Border CornerRadius="10"
+                            Background="#353340"
+                            Width="230"
+                            Height="40">
+                            <Grid>
+                                <TextBox Name="TBIngredientQuantity"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 VerticalAlignment="Center"
+                                 Foreground="White"
                                  Text="{Binding IngredientQuantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </Grid>
+                        </Border>
 
 
                     </StackPanel>
@@ -163,7 +220,7 @@
                                        Height="20"
                                        Width="190"
                                        SelectedValuePath="Content"
-                                       SelectedItem="{Binding ingredientsClass.IngredientUoM, Mode=TwoWay}">
+                                       SelectedValue="{Binding SelectedUoM, Mode=TwoWay}">
 
                                 <ComboBoxItem Content="Cup(s)"/>
                                 <ComboBoxItem Content="1/2 Cup(s)"/>
@@ -194,11 +251,20 @@
                                Foreground="white"
                                FontSize="15"
                                VerticalAlignment="Center"/>
-
-                        <TextBox Name="TBIngredientCalories"
-                                 Style="{StaticResource UserInputTheme}"
+                        
+                        <Border CornerRadius="10"
+                            Background="#353340"
+                            Width="230"
+                            Height="40">
+                            <Grid>
+                                <TextBox Name="TBIngredientCalories"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 VerticalAlignment="Center"
+                                 Foreground="White"
                                  Text="{Binding IngredientCalories, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
+                            </Grid>
+                        </Border>
 
                     </StackPanel>
                 </Border>
@@ -225,7 +291,7 @@
                                        Width="190"
                                        Background="#353340"
                                        SelectedValuePath="Content"
-                                       SelectedItem="{Binding ingredientsClass.IngredientFoodGroup, Mode=TwoWay}">
+                                       SelectedValue="{Binding IngredientFoodGroup, Mode=TwoWay}">
 
                                 <ComboBoxItem Content="Protien"/>
                                 <ComboBoxItem Content="Carboydrates"/>
@@ -275,8 +341,8 @@
                             Content="Add Step"
                             Foreground="White"
                             FontSize="15"
-                            IsHitTestVisible="False"
-                            BorderThickness="0">
+                            BorderThickness="0"
+                            Command="{Binding AddStepCommand}">
 
                             </Button>
                         </Border>
@@ -299,12 +365,12 @@
                         <TextBox Name="TBStep"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch"
-                         Text="Step 1"
                          Background="Transparent"
                          BorderThickness="0"
                          Foreground="White"
                          TextWrapping="Wrap"
-                         Margin="5,5,5,5"/>
+                         Margin="5,5,5,5"
+                         Text="{Binding StepDescription}"/>
 
 
                     </Border>

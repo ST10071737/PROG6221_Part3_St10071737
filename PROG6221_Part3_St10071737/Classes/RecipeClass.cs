@@ -1,44 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PROG6221_Part3_St10071737.MVVM.View;
+using System.Collections.ObjectModel;
 
 namespace PROG6221_Part3_St10071737.Classes
 {
-    internal class RecipeClass
+    public class RecipeClass
     {
         /// <summary>
         /// Stores the name of a recipe.
         /// </summary>
-        private String RecipeName = String.Empty;
+        public String RecipeName = String.Empty;
         //___________________________________________________________________________________________________________
 
         /// <summary>
         /// Creates a new instance of the IngredientsClass class.
         /// </summary>
-        private IngredientsClass IngredientsHere;
+        public IngredientsClass IngredientsHere;
         //___________________________________________________________________________________________________________
 
         /// <summary>
         /// Creates a new instance of the StepsClass class.
         /// </summary>
-        private StepsClass StepsHere = new StepsClass();
+        public StepsClass StepsHere = new StepsClass();
         //___________________________________________________________________________________________________________
 
         /// <summary>
         /// Represents an List of IngredientsClass objects.
         /// </summary>
-        private List<IngredientsClass> IngredientsList;
+        public ObservableCollection<IngredientsClass> IngredientsList { get; set; } = new ObservableCollection<IngredientsClass>();
         //___________________________________________________________________________________________________________
 
         /// <summary>
         /// Represents an List of StepsClass objects.
         /// </summary>
-        private List<StepsClass> StepsList;
+        public ObservableCollection<StepsClass> StepsList { get; set; } = new ObservableCollection<StepsClass>();
         //___________________________________________________________________________________________________________
 
+        public RecipeClass()
+        {  
+        }
 
+        //___________________________________________________________________________________________________________
+
+        public override string ToString()
+        {
+            return this.RecipeName;
+        }
+        //___________________________________________________________________________________________________________
     }
 }
