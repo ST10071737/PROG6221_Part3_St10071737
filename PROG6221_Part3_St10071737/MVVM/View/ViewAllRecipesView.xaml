@@ -5,33 +5,296 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PROG6221_Part3_St10071737.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="780">
     <StackPanel>
-        <TextBlock Text="Recipes"
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Recipe View"
                    Foreground="White"
                    FontSize="28"
                    HorizontalAlignment="Left"
                    Margin="5,0,0,10"/>
-        <Grid Height="400">
+
+            <Border Height="40"
+                    Width="595"
+                    Background="#252130"
+                    CornerRadius="10"
+                    Margin="5,0,5,0">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <Border Width="250"
+                            Background="#353340"
+                            CornerRadius="10"
+                            Margin="10,5,0,5"
+                            HorizontalAlignment="Left">
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <Label Content="Recipe:"
+                               Foreground="White"
+                               FontSize="15"/>
+
+                            <Label Foreground="White"
+                                   FontSize="15"/>
+
+                        </StackPanel>
+                    </Border>
+
+                    <Border Width="250"
+                            Background="#353340"
+                            CornerRadius="10"
+                            Margin="10,5,0,5"
+                            HorizontalAlignment="Left">
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <Label Content="total Calories:"
+                               Foreground="White"
+                               FontSize="15"/>
+
+                            <Label Foreground="White"
+                                   FontSize="15"/>
+
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <Grid Height="475">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="0"
                     Background="#252130"
                     CornerRadius="10"
                     Margin="5,5,5,5">
-                
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Border Background="#353340"
+                            Margin="5,5,5,5"
+                            CornerRadius="10">
+
+                        <Label Content="Ingredients"
+                               Foreground="White"
+                               FontSize="25"
+                               Margin="5,10"
+                               HorizontalAlignment="Center"/>
+
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            Background="#353340"
+                            Margin="5,5,5,5"
+                            CornerRadius="10">
+
+                        <Label Content="Steps"
+                               Foreground="White"
+                               FontSize="25"
+                               Margin="5,10"
+                               HorizontalAlignment="Center"/>
+
+                    </Border>
+
+                    <Border Grid.Row="1"
+                            Background="#353340"
+                            Margin="5,5,5,5"
+                            CornerRadius="10">
+
+                        <TextBlock Margin="5"
+                                   Name="IngredientsDisplay"/>
+
+                    </Border>
+                    <Border Grid.Column="1"
+                            Grid.Row="1"
+                            Background="#353340"
+                            Margin="5,5,5,5"
+                            CornerRadius="10">
+
+                        <TextBlock Margin="5"
+                                   Name="StepsDisplay"/>
+
+                    </Border>
+
+                </Grid>
+
             </Border>
 
             <Border Grid.Column="1"
                     Background="#252130"
                     CornerRadius="10"
                     Margin="5,5,5,5">
-                
+                <StackPanel>
+                    <Border Height="10"/>
+                    <ComboBox Name="CBUoM"
+                              Height="20"
+                              Width="180">
+                    </ComboBox>
+
+                    <Border Height="2"/>
+
+                    <Border Width="180"
+                            Background="#353340"
+                            CornerRadius="10"
+                            Margin="5,5,5,5"
+                            HorizontalAlignment="Left">
+
+                        <Label Content="Filter recipes By:"
+                           Foreground="White"
+                           FontSize="15"
+                           HorizontalAlignment="Center"/>
+
+                    </Border>
+
+                    <Border Width="180"
+                            Background="#353340"
+                            CornerRadius="10"
+                            Margin="5,5,5,5"
+                            HorizontalAlignment="Left">
+
+                        <StackPanel>
+
+                            <Label Content="Ingredient Name"
+                                   Foreground="White"
+                                   FontSize="15"
+                                   HorizontalAlignment="Center"/>
+
+                            <Border CornerRadius="10"
+                            Background="#24222b"
+                            Width="170"
+                            Height="30"
+                                    Margin="5,5,5,5">
+                                <Grid>
+                                    <TextBox Background="Transparent"
+                                             BorderThickness="0"
+                                             VerticalAlignment="Center"
+                                             Foreground="White"
+                                             Text="{Binding IngredientName}"/>
+                                </Grid>
+                            </Border>
+
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border Width="180"
+                            Background="#353340"
+                            CornerRadius="10"
+                            Margin="5,5,5,5"
+                            HorizontalAlignment="Left">
+
+                        <StackPanel>
+
+                            <Label Content="Maximum Calories"
+                                   Foreground="White"
+                                   FontSize="15"
+                                   HorizontalAlignment="Center"/>
+
+                            <Border CornerRadius="10"
+                            Background="#24222b"
+                            Width="170"
+                            Height="30"
+                                    Margin="5,5,5,5">
+                                <Grid>
+                                    <TextBox Background="Transparent"
+                                             BorderThickness="0"
+                                             VerticalAlignment="Center"
+                                             Foreground="White"
+                                             Text="{Binding IngredientName}"/>
+                                </Grid>
+                            </Border>
+
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border Width="180"
+                            Background="#353340"
+                            CornerRadius="10"
+                            Margin="5,5,5,5"
+                            HorizontalAlignment="Left">
+
+                        <StackPanel>
+
+                            <Label Content="Food Group"
+                                   Foreground="White"
+                                   FontSize="15"
+                                   HorizontalAlignment="Center"/>
+
+                            <Border CornerRadius="10"
+                            Background="#24222b"
+                            Width="170"
+                            Height="30"
+                                    Margin="5,5,5,5">
+                                <Grid>
+                                    <ComboBox Height="20"
+                                              Width="160">
+
+                                        <ComboBoxItem Content="Protien"/>
+                                        <ComboBoxItem Content="Carboydrates"/>
+                                        <ComboBoxItem Content="Fats"/>
+                                        <ComboBoxItem Content="Dairy"/>
+
+                                    </ComboBox>
+                                </Grid>
+                            </Border>
+
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border Width="180"
+                            Background="#353340"
+                            CornerRadius="10"
+                            Margin="5,5,5,5"
+                            HorizontalAlignment="Left">
+
+                        <Label Content="Scale Recipe By:"
+                           Foreground="White"
+                           FontSize="15"
+                           HorizontalAlignment="Center"/>
+
+                    </Border>
+                    <Border Width="180"
+                            Background="#353340"
+                            CornerRadius="10"
+                            >
+
+                        <StackPanel Orientation="Horizontal">
+                            <Slider Minimum="0.5"
+                                    Maximum="3"
+                                    Width="130"
+                                    Height="20"
+                                    TickFrequency="0.5"
+                                    IsSnapToTickEnabled="True"
+                                    Value="1"
+                                    x:Name="ScaleSlider"
+                                    Margin="5"/>
+                            <Label Content="{Binding Value, ElementName=ScaleSlider}"
+                                   Foreground="White"
+                                   VerticalAlignment="Center"
+                                   Margin="5,0,0,0"/>
+                        </StackPanel>
+
+
+
+                    </Border>
+
+                </StackPanel>
             </Border>
-            
+
         </Grid>
     </StackPanel>
 </UserControl>
