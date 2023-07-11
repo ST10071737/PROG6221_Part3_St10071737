@@ -1,7 +1,9 @@
 ﻿using PROG6221_Part3_St10071737.Classes;
 using PROG6221_Part3_St10071737.Core;
+using PROG6221_Part3_St10071737.MVVM.Model;
 using System;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace PROG6221_Part3_St10071737.MVVM.ViewModel
 {
@@ -164,6 +166,12 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
             };
 
             ingredientsClassList.Add(ingredient);
+
+            this.IngredientName = String.Empty;
+            this.IngredientQuantity = 0;
+            this.SelectedUoM = String.Empty;
+            this.IngredientCalories = 0;
+            this.IngredientFoodGroup = String.Empty;
         }
         //___________________________________________________________________________________________________________
 
@@ -175,6 +183,8 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
             };
 
             stepsClassList.Add(step);
+
+            this.StepDescription = String.Empty;
         }
         //___________________________________________________________________________________________________________
 
@@ -186,6 +196,15 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
                 IngredientsList = this.ingredientsClassList,
                 StepsList = this.stepsClassList,
             };
+
+            RecipeListModel.AddRecipe(recipe);
+
+            MessageBox.Show(recipe.RecipeName);
+
+            this.RecipeName = String.Empty;
+            this.ingredientsClassList = null;
+            this.stepsClassList = null;
+            
         }
         //___________________________________________________________________________________________________________
 
