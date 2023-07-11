@@ -27,3 +27,4 @@ the Circle button with the cross is to exit the Application
 
 ##GITHUB Button 
 the small github icon on the tool bar takes you to the takes you to the github repository for this aplication
+
