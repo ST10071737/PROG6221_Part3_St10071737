@@ -42,12 +42,12 @@
 
                             <Label Foreground="White"
                                    FontSize="15"
-                                   Content="{Binding SelectedRecipe.RecipeName}"/>
+                                   Content="{Binding SelectedRecipeName}"/>
 
                         </StackPanel>
                     </Border>
 
-                    <Border Width="250"
+                    <Border Width="150"
                             Background="#353340"
                             CornerRadius="10"
                             Margin="10,5,0,5"
@@ -60,10 +60,29 @@
                                FontSize="15"/>
 
                             <Label Foreground="White"
-                                   FontSize="15"/>
+                                   FontSize="15"
+                                   Content="{Binding SelectedRecipeTotalCalories}"/>
 
                         </StackPanel>
                     </Border>
+
+                    <Border Margin="40,0,0,0"
+                            CornerRadius="10"
+                            Width="100"
+                            Height="30"
+                            Background="#38070d">
+                        
+                        <Button Height="30"
+                                Width="100"
+                                Background="Transparent"
+                                Foreground="White"
+                                BorderThickness="0"
+                                Content="Delete Recipe"
+                                VerticalAlignment="Center"
+                                Command="{Binding DeleteRecipe}"/>
+                        
+                    </Border>
+                    
                 </StackPanel>
             </Border>
         </StackPanel>
@@ -121,7 +140,9 @@
                             CornerRadius="10">
 
                         <TextBlock Margin="5"
-                                   Name="IngredientsDisplay"/>
+                                   Name="IngredientsDisplay"
+                                   Foreground="White"
+                                   Text="{Binding AllIngredients}"/>
 
                     </Border>
                     <Border Grid.Column="1"
@@ -131,7 +152,9 @@
                             CornerRadius="10">
 
                         <TextBlock Margin="5"
-                                   Name="StepsDisplay"/>
+                                   Name="StepsDisplay"
+                                   Foreground="White"
+                                   Text="{Binding AllSteps}"/>
 
                     </Border>
 
@@ -144,8 +167,23 @@
                     CornerRadius="10"
                     Margin="5,5,5,5">
                 <StackPanel>
-                    <Border Height="10"/>
-                    <ComboBox Name="CBUoM"
+
+                    <Border Width="180"
+                            Background="#353340"
+                            CornerRadius="10"
+                            Margin="5,5,5,5"
+                            HorizontalAlignment="Left">
+
+                        <Label Content="Select Recipe:"
+                           Foreground="White"
+                           FontSize="15"
+                           HorizontalAlignment="Center"/>
+
+                    </Border>
+
+                    <Border Height="2"/>
+
+                    <ComboBox x:Name="RecipeList"
                               Height="20"
                               Width="180"
                               ItemsSource="{Binding Recipes}"
@@ -186,11 +224,12 @@
                             Height="30"
                                     Margin="5,5,5,5">
                                 <Grid>
-                                    <TextBox Background="Transparent"
+                                    <TextBox Name="TBIngredientNameFilter"
+                                             Background="Transparent"
                                              BorderThickness="0"
                                              VerticalAlignment="Center"
                                              Foreground="White"
-                                             Text="{Binding IngredientName}"/>
+                                             Text="{Binding IngredientFilter}"/>
                                 </Grid>
                             </Border>
 
@@ -221,7 +260,7 @@
                                              BorderThickness="0"
                                              VerticalAlignment="Center"
                                              Foreground="White"
-                                             Text="{Binding IngredientName}"/>
+                                             Text="{Binding CaloriesFilter}"/>
                                 </Grid>
                             </Border>
 
@@ -249,7 +288,9 @@
                                     Margin="5,5,5,5">
                                 <Grid>
                                     <ComboBox Height="20"
-                                              Width="160">
+                                              Width="160"
+                                              SelectedValuePath="Content"
+                                              SelectedValue="{Binding FoodGroupFilter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
 
                                         <ComboBoxItem Content="Protien"/>
                                         <ComboBoxItem Content="Carboydrates"/>
@@ -288,7 +329,7 @@
                                     Height="20"
                                     TickFrequency="0.5"
                                     IsSnapToTickEnabled="True"
-                                    Value="1"
+                                    Value="{Binding SelectedRecipeScale}"
                                     x:Name="ScaleSlider"
                                     Margin="5"/>
                             <Label Content="{Binding Value, ElementName=ScaleSlider}"
@@ -301,6 +342,32 @@
 
                     </Border>
 
+                    <StackPanel Orientation="Horizontal">
+                        <Border Background="#353340"
+                                CornerRadius="10"
+                                Margin="5">
+                            <Button Height="40"
+                                    Width="80"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Content="Set filter"
+                                    Command="{Binding SetFilter}"/>
+                        </Border>
+                        <Border Background="#353340"
+                                CornerRadius="10"
+                                Margin="5">
+                            <Button Height="40"
+                                    Width="80"
+                                    Background="Transparent"
+                                    Foreground="White"
+                                    BorderThickness="0"
+                                    Content="remove Filter"
+                                    Command="{Binding RemoveFilter}"/>
+                        </Border>
+                    </StackPanel>
+                    
+                    
                 </StackPanel>
             </Border>
 

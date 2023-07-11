@@ -104,6 +104,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\Model\RecipeFilter.cs" />
     <Compile Include="MVVM\Model\RecipeListModel.cs" />
     <Compile Include="MVVM\ViewModel\AddRecipeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />

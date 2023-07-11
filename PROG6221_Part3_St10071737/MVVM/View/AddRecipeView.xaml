@@ -79,13 +79,14 @@
                             Margin="35,0,35,0">
 
                         <Button Width="200"
-                            Height="30"
-                            Background="Transparent"
-                            Content="Add Recipe"
-                            Foreground="White"
-                            FontSize="20"
-                            BorderThickness="0"
-                            Command="{Binding AddRecipeCommand}">
+                                Height="30"
+                                Background="Transparent"
+                                Content="Add Recipe"
+                                Foreground="White"
+                                FontSize="20"
+                                BorderThickness="0"
+                                ToolTip="press to submit a your new recipe"
+                                Command="{Binding AddRecipeCommand}">
 
                         </Button>
                     </Border>
@@ -97,18 +98,18 @@
                   Grid.Row="1">
 
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
                     <RowDefinition Height="50"/>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="70"/>
                 </Grid.RowDefinitions>
 
                 <Border Background="#252130"
                         CornerRadius="10"
                         Margin="5"
-                        Grid.Row="0">
+                        Grid.Row="5">
 
                     <StackPanel Orientation="Horizontal">
 
@@ -117,7 +118,7 @@
                                FontSize="15"
                                VerticalAlignment="Center"/>
 
-                        
+
 
                         <Border Background="#353340"
                         CornerRadius="10"
@@ -133,19 +134,15 @@
                             BorderThickness="0"
                             Command="{Binding AddIngredientCommand}"/>
 
-
                         </Border>
                     </StackPanel>
-
-
-
 
                 </Border>
 
                 <Border Background="#252130"
                         CornerRadius="10"
                         Margin="5"
-                        Grid.Row="1">
+                        Grid.Row="0">
 
                     <StackPanel Orientation="Horizontal">
 
@@ -174,7 +171,7 @@
                 <Border Background="#252130"
                         CornerRadius="10"
                         Margin="5"
-                        Grid.Row="2">
+                        Grid.Row="1">
 
                     <StackPanel Orientation="Horizontal">
 
@@ -203,7 +200,7 @@
                 <Border Background="#252130"
                         CornerRadius="10"
                         Margin="5"
-                        Grid.Row="3">
+                        Grid.Row="2">
 
                     <StackPanel Orientation="Horizontal">
 
@@ -228,7 +225,10 @@
                                 <ComboBoxItem Content="1/8 Cup(s)"/>
                                 <ComboBoxItem Content="Tablespoon(s)"/>
                                 <ComboBoxItem Content="Teaspoon(s)"/>
-                                <ComboBoxItem Content="N/A"/>
+                                <ComboBoxItem Content="Grams"/>
+                                <ComboBoxItem Content="KiloGramsrams"/>
+                                <ComboBoxItem Content="Millileters"/>
+                                <ComboBoxItem Content="Liters"/>
 
                             </ComboBox>
                             
@@ -243,7 +243,7 @@
                 <Border Background="#252130"
                         CornerRadius="10"
                         Margin="5"
-                        Grid.Row="4">
+                        Grid.Row="3">
 
                     <StackPanel Orientation="Horizontal">
 
@@ -272,7 +272,7 @@
                 <Border Background="#252130"
                         CornerRadius="10"
                         Margin="5"
-                        Grid.Row="5">
+                        Grid.Row="4">
 
                     <StackPanel Orientation="Horizontal">
 
@@ -311,11 +311,11 @@
                   Grid.Row="1">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
                     <RowDefinition />
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.Row="0"
+                <Border Grid.Row="1"
                 Background="#252130"
                 CornerRadius="10"
                 Margin="5">
@@ -353,7 +353,7 @@
                 </Border>
 
 
-                <Border Grid.Row="1"
+                <Border Grid.Row="0"
                 Background="#252130"
                 CornerRadius="10"
                 Margin="5">

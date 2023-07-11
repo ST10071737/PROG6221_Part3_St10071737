@@ -1,10 +1,5 @@
 ﻿using PROG6221_Part3_St10071737.Classes;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PROG6221_Part3_St10071737.MVVM.Model
 {
@@ -23,6 +18,11 @@ namespace PROG6221_Part3_St10071737.MVVM.Model
         public static ObservableCollection<RecipeClass> ReturnRecipes()
         {
             return recipeList;
+        }
+
+        public static void ClearRecipes(RecipeClass recipe)
+        {
+            recipeList.Remove(recipe);
         }
     }
 }

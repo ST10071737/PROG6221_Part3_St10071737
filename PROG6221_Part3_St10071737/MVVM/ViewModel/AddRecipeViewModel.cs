@@ -193,17 +193,15 @@ namespace PROG6221_Part3_St10071737.MVVM.ViewModel
             var recipe = new RecipeClass
             {
                 RecipeName = this.RecipeName,
-                IngredientsList = this.ingredientsClassList,
-                StepsList = this.stepsClassList,
+                IngredientsList = new ObservableCollection<IngredientsClass>(this.ingredientsClassList),
+                StepsList = new ObservableCollection<StepsClass>(this.stepsClassList),
             };
 
             RecipeListModel.AddRecipe(recipe);
 
-            MessageBox.Show(recipe.RecipeName);
-
             this.RecipeName = String.Empty;
-            this.ingredientsClassList = null;
-            this.stepsClassList = null;
+            this.ingredientsClassList.Clear();
+            this.stepsClassList.Clear();
             
         }
         //___________________________________________________________________________________________________________

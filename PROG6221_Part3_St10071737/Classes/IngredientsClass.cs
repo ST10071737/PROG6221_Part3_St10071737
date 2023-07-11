@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace PROG6221_Part3_St10071737.Classes
 {
@@ -73,10 +71,17 @@ namespace PROG6221_Part3_St10071737.Classes
         }
         //___________________________________________________________________________________________________________
 
+        public double GetCalories()
+        {
+            return this.IngredientCalories;
+        }
+
+        //___________________________________________________________________________________________________________
+
         public override string ToString()
         {
             return this.IngredientQuantity + " " + this.IngredientUoM + " of " + this.IngredientName +
-                "( Food group: " + this.IngredientFoodGroup + ", Calories: " + this.IngredientCalories;
+                "\r\n( Food group: " + this.IngredientFoodGroup + ", Calories: " + this.IngredientCalories;
         }
 
     }
