@@ -94,7 +94,7 @@ namespace PROG6221_Part3_St10071737.Classes
                 RecipeScale = scale,
             };
 
-            foreach(IngredientsClass ingredients in this.IngredientsList)
+            foreach (IngredientsClass ingredients in this.IngredientsList)
             {
                 IngredientsClass ScaledIngredient = new IngredientsClass
                 {
@@ -115,6 +115,7 @@ namespace PROG6221_Part3_St10071737.Classes
 
             return scaledRecipe;
         }
+        //___________________________________________________________________________________________________________
     }
 }
 //____________________________________EOF_________________________________________________________________________

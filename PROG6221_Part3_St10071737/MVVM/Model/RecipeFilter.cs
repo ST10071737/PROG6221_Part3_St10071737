@@ -16,9 +16,9 @@ namespace PROG6221_Part3_St10071737.MVVM.Model
 
         public RecipeFilter(string IngredientFilter, string foodGroupFilter, double maxCalorieFilter)
         {
-            this.IngredientFilter= IngredientFilter;
-            this.FoodGroupFilter= foodGroupFilter;
-            this.MaxCalorieFilter= maxCalorieFilter;
+            this.IngredientFilter = IngredientFilter;
+            this.FoodGroupFilter = foodGroupFilter;
+            this.MaxCalorieFilter = maxCalorieFilter;
         }
         //___________________________________________________________________________________________________________
 
@@ -26,7 +26,7 @@ namespace PROG6221_Part3_St10071737.MVVM.Model
         {
             var filtered = new ObservableCollection<RecipeClass>();
 
-           
+
 
             foreach (var recipe in recipeClassList)
             {
@@ -52,7 +52,7 @@ namespace PROG6221_Part3_St10071737.MVVM.Model
                     }
                 }
 
-                if(ingredintsFilter &&  foodGroupFilter && maxCalorieFilter) 
+                if (ingredintsFilter && foodGroupFilter && maxCalorieFilter)
                 {
                     filtered.Add(recipe);
                 }
@@ -60,7 +60,7 @@ namespace PROG6221_Part3_St10071737.MVVM.Model
 
             return filtered;
         }
-
+        //___________________________________________________________________________________________________________
     }
 }
 //____________________________________EOF_________________________________________________________________________
